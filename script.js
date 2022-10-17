@@ -23,9 +23,13 @@ function updateSpanText(id, depositNumber) {
 depositBtn.addEventListener('click', () => {
   const depositNumber = parseFloat(depositAmount.value)
 
-  updateSpanText('currentDeposit', depositNumber)
+  if (depositNumber < 0) {
+    alert('Deposit number cannot be negative!')
+  } else {
+    updateSpanText('currentDeposit', depositNumber)
 
-  updateSpanText('currentBalance', depositNumber)
+    updateSpanText('currentBalance', depositNumber)
+  }
 
   document.getElementById('depositAmount').value = ''
 })
